@@ -39,3 +39,16 @@ function efectoHabilidades(){
 window.onscroll = function(){
     efectoHabilidades();
 } 
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Obtiene el botón por su id y agrega el evento de clic
+    document.getElementById("download-btn").addEventListener("click", function() {
+        const a = document.createElement('a');
+      
+        a.href = "files/CV-AlfaroJosue.pdf";
+        a.download="CV-AlfaroJosue.pdf";
+        a.click();
+    });
+});
