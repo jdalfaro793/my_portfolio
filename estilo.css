@@ -244,71 +244,7 @@ html {
     width: 100%;
 }
 
-
-/* SECCION S K I L L S */
-
-/* Container general para las habilidades */
-.skills-container {
-    margin-bottom: 30px;
-    /* Espacio entre categorías */
-    padding: 20px;
-    background: linear-gradient(to right, #1e3c72, #2a5298);
-    /* Fondo degradado */
-    border-radius: 10px;
-    color: white;
-    text-align: center;
-}
-
-/* Títulos de las categorías */
-.skills-container h4 {
-    margin-bottom: 20px;
-    font-size: 20px;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-/* Estilo de los íconos y textos */
-.skill {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 10px;
-}
-
-.skill i {
-    font-size: 40px;
-    /* Tamaño del ícono */
-    color: white;
-    /* Color inicial */
-    transition: transform 0.3s, color 0.3s;
-    /* Animación */
-}
-
-.skill span {
-    margin-top: 8px;
-    font-size: 14px;
-    /* Tamaño del texto */
-}
-
-/* Interacción al pasar el cursor */
-.skill:hover i {
-    transform: scale(1.2);
-    /* Aumenta tamaño */
-    color: #ffcc00;
-    /* Cambia de color */
-}
-
-/* Diseño responsivo */
-.skills-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-    /* Se adapta al tamaño */
-    gap: 20px;
-    /* Espacio entre íconos */
-    justify-items: center;
-}
-
-
+/* SECCIÓN SKILLS */
 .skills {
     background-color: #252A2E;
     color: #fff;
@@ -325,11 +261,34 @@ html {
     font-family: 'Righteous';
     text-align: center;
     padding: 20px 0;
+}
 
+.skills-container {
+    margin-bottom: 20px;
+    padding: 20px;
+    background: linear-gradient(to right, #1e3c72, #1CB698);
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    gap: 10px;
+    justify-items: center;
+}
+
+
+.skills-container h4 {
+    grid-column: 1 / -1;
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
 }
 
 .skills .fila {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .skills .fila .col {
@@ -343,10 +302,29 @@ html {
     margin-bottom: 25px;
 }
 
-.skills .skill>span {
+.skill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     font-weight: bold;
-    display: block;
     margin-bottom: 10px;
+    text-align: center;
+}
+
+.skill i {
+    font-size: 35px;
+    color: white;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.skill span {
+    margin-top: 8px;
+    font-size: 12px;
+}
+
+.skill:hover i {
+    transform: scale(1.2);
+    color: #ffcc00;
 }
 
 .skills .skill .barra-skill {
@@ -370,7 +348,7 @@ html {
     height: 40px;
     width: 40px;
     background-color: #1CB698;
-    border-radius: 50px;
+    border-radius: 50%;
     line-height: 40px;
     text-align: center;
     top: -17px;
@@ -378,20 +356,36 @@ html {
     font-size: 14px;
 }
 
-/* Estas clases se agregaran dinamicamente mediante javascript */
+/* Animaciones dinámicas */
+@keyframes comunicacion {
+    0% { width: 0%; }
+    100% { width: 67%; }
+}
+
+@keyframes trabajo {
+    0% { width: 0%; }
+    100% { width: 90%; }
+}
+
+@keyframes creatividad {
+    0% { width: 0%; }
+    100% { width: 86%; }
+}
+
+@keyframes dedicacion {
+    0% { width: 0%; }
+    100% { width: 85%; }
+}
+
+@keyframes proyect {
+    0% { width: 0%; }
+    100% { width: 94%; }
+}
+
+/* Aplicación de animaciones */
 .skills .skill .comunicacion {
     width: 0%;
     animation: 2s comunicacion forwards;
-}
-
-@keyframes comunicacion {
-    0% {
-        width: 0%;
-    }
-
-    100% {
-        width: 65%;
-    }
 }
 
 .skills .skill .trabajo {
@@ -399,29 +393,9 @@ html {
     animation: 2s trabajo forwards;
 }
 
-@keyframes trabajo {
-    0% {
-        width: 0%;
-    }
-
-    100% {
-        width: 90%;
-    }
-}
-
 .skills .skill .creatividad {
     width: 0%;
     animation: 2s creatividad forwards;
-}
-
-@keyframes creatividad {
-    0% {
-        width: 0%;
-    }
-
-    100% {
-        width: 86%;
-    }
 }
 
 .skills .skill .dedicacion {
@@ -429,30 +403,57 @@ html {
     animation: 2s dedicacion forwards;
 }
 
-@keyframes dedicacion {
-    0% {
-        width: 0%;
-    }
-
-    100% {
-        width: 85%;
-    }
-}
-
 .skills .skill .proyect {
     width: 0%;
     animation: 2s proyect forwards;
 }
 
-@keyframes proyect {
-    0% {
-        width: 0%;
+/* Media Queries */
+@media (max-width: 768px) {
+    .skills .fila .col {
+        width: 100%; /* Una columna por fila */
+        padding: 0 10px;
     }
 
-    100% {
-        width: 94%;
+    .skills-container {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Más compacto */
+    }
+
+    .skills h2 {
+        font-size: 36px;
+    }
+
+    .skill i {
+        font-size: 30px;
     }
 }
+
+/* Móviles */
+@media (max-width: 480px) {
+    .skills h2 {
+        font-size: 28px;
+        padding: 15px 0;
+    }
+
+    .skills .fila .col h3 {
+        font-size: 20px;
+    }
+
+    .skills-container {
+        padding: 15px;
+        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    }
+
+    .skill span {
+        font-size: 10px;
+        margin-top: 5px;
+    }
+
+    .skill i {
+        font-size: 25px;
+    }
+}
+
 
 /* SECCION CURRICULUM */
 .curriculum {
